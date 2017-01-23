@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--TODO: add meta with window name and icon  -->
+	<title>Geo Location</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="vendors/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="vendors/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIMaNgcvnH-Jqf57ZDoYzA5feP1dtEIrE"></script>
+  </head>
+  <body>
+    <aside>
+      <nav class="navbar navbar-inverse sidebar" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-the-navbar">
+              <span class="sr-only">Toggle Dropdown</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+              <a class="navbar-brand" href="#">Brand</a>
+          </div>
+          <div class="collapse navbar-collapse" id="collapse-the-navbar">
+            <ul class="nav navbar-nav">
+              <li><a href="#">Home<span class="pull-right showopacity fa fa-home" aria-hidden="true"></span></a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-menu" data-toggle="dropdown">Settings<span  class="pull-right showopacity fa fa-cog" aria-hidden="true"></span></a></li>
+                  <ul class="dropdown-menu fromAnimate" role="menu">
+                    <li><a href="#">Infections<span  class="pull-right showopacity fa fa-bug" aria-hidden="true"></a>
+                      <select class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </li>
+                    <li><a href="#">Graphs<span  class="pull-right showopacity fa fa-bar-chart" aria-hidden="true"></span></a></li>
+                  </ul>
+              </li>
+              <li><a href="#">GitHub<span  class="pull-right showopacity fa fa-github-alt" aria-hidden="true"></span></a></li>
+              <li><a href="#">LinkedIn<span  class="pull-right showopacity fa fa-linkedin" aria-hidden="true"></span></a></li>
+              <li><a href="#">About Us<span  class="pull-right showopacity fa fa-info-circle" aria-hidden="true"></span></a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </aside>
+    <div class="about">
+      <!-- about content here -->
+    </div>
+	<!-- an empty div for the map -->
+	  <div id="map-canvas"></div>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script language="javascript" type="text/javascript" src="js/map.js"></script>
+    <script language="javascript" type="text/javascript" src="js/map.js"></script>
+  </body>
+</html>
