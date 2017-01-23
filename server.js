@@ -77,7 +77,7 @@ app.post('/cods/insert', function(request, response) {
 // Almost all URL's go to index
 app.get('*', function(request, response) {
   console.log('New request:', request.url);
-  response.sendFile('index.html', { root: '.' });
+  response.sendFile('public/index.html', { root: '.' });
 });
 
 // Port Listener
