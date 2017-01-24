@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "loadarticles": "bin/loadarticles"
+    "loadJSON": "bin/loadJSON"
   },
   "author": "Code Fellows",
   "license": "ISC",
