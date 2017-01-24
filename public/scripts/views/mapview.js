@@ -64,7 +64,6 @@ $(function() {
       }
       function success(pos){
         userCords = pos.coords;
-        console.log('I am at line 24', userCords);
         return userCords;
       }
       navigator.geolocation.getCurrentPosition(success, error);
