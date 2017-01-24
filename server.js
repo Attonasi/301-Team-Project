@@ -1,11 +1,11 @@
 'use strict';
 
 // Stuff
-var requestProxy = require('express-request-proxy'),
+var requestProxy = require('express-request-proxy');
 const pg = require('pg');
-const express = require('express'),
+const express = require('express');
 const bodyParser = require('body-parser');
-const port = process.env.PORT || 3000,
+const port = process.env.PORT || 3000;
 const app = express();
 const conString = process.env.DATABASE_URL || 'postgres://localhost:5432';
   // Github Proxy Function
