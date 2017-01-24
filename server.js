@@ -82,6 +82,8 @@ app.post('/cods/insert', function(request, response) {
       }
     );
   });
+  //adding line below
+  client.connect();
   response.send('insert complete');
 });
 
