@@ -123,14 +123,15 @@ $(function() {
                   allMarkers = new google.maps.Marker({
                     position: myLatlng,
                     map: map,
-                    title: marketName[counter]
-									// html:
-											// '<div class='markerPop'>' +
-											// '<h1>' + marketName[counter].substring(4) + '</h1>' + //substring removes distance from title
-											// '<h3>' + results['Address'] + '</h3>' +
-											// '<p>' + results['Products'].split(';') + '</p>' +
-											// '<p>' + results['Schedule'] + '</p>' +
-											// '</div>'
+                    title: marketName[counter],
+                    //substring removes distance from title
+									html:
+											`<div class=markerPop>
+											<h1>  ${marketName[counter].substring(4)} </h1>
+											<h3> ${results[Address]} </h3>
+											<p>  ${results[Products].split(';')}  </p>
+											<p>  ${results[Schedule]}  </p>
+											</div>`
                   });
 
 								//put all lat long in array
