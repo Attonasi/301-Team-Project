@@ -148,7 +148,6 @@ $(function() {
                   infowindow.open(map, this);
                 });
 
-
 								//console.log(allLatlng);
 								//  Make an array of the LatLng's of the markers you want to show
 								//  Create a new viewpoint bound
@@ -160,8 +159,6 @@ $(function() {
                 }
 								//  Fit these bounds to the map
                 map.fitBounds (bounds);
-
-
               }
             });
           }); //end .each
