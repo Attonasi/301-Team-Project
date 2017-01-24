@@ -1,0 +1,44 @@
+@pauldessert @mkolh
+RawBlameHistory
+68 lines (55 sloc)  3 KB
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Find Local Farmers Markets</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="vendors/css/map.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key="></script>
+  <script language="javascript" type="text/javascript" src="scripts/views/mapview.js"></script>
+	<!-- <script language="javascript" type="text/javascript" src="js/search.js"></script> -->
+  </head>
+  <body>
+
+	<div id="control">
+		<h2>Find Local Farmers Markets</h2>
+		<p>We'll help you locate your closest farmers markets. Simply choose an option below to begin...</p>
+		<form method="get" id="chooseZip">
+			<button type="submit" class="learnButton">Use current location</button>
+			<button type="button" id="searchZip" class="learnButton">Search by Zip Code</button>
+			<div class="clear"></div>
+			<div class="zipSearch">
+				<input id="textZip" type="text" name="zip" placeholder="enter your zip code" autofocus>
+				<button type="submit" class="learnButton">Search</button>
+			</div>
+			<div class="clear"></div>
+		</form>
+
+		<div class="clear"></div>
+		<div id="results"></div>
+	</div>
+
+	<!-- an empty div for the map -->
+	<div id="map-canvas"></div>
+
+
+  </body>
+</html>

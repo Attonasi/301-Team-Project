@@ -5,18 +5,20 @@ var requestProxy = require('express-request-proxy');
 const pg = require('pg');
 const express = require('express');
 const bodyParser = require('body-parser');
+
 const port = process.env.PORT || 3000;
+
 const app = express();
 const conString = process.env.DATABASE_URL || 'postgres://127.0.0.1:5432';
 //console.log('bob');
   // Github Proxy Function
-  var proxyGitHub = function(request, response) {
-    console.log('Routing GitHub request for', request.params[0]);
-    (requestProxy({
-      url: 'https://api.github.com/' + request.params[0],
-      headers: { Authorization: 'token ' + process.env.GITHUB_TOKEN }
-    }))(request, response);
-  };
+var proxyGitHub = function(request, response) {
+  console.log('Routing GitHub request for', request.params[0]);
+  (requestProxy({
+    url: 'https://api.github.com/' + request.params[0],
+    headers: { Authorization: 'token ' + process.env.GITHUB_TOKEN }
+  }))(request, response);
+};
 
 //Express Call
 app.use(bodyParser.json());
