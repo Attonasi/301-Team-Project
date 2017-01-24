@@ -31,7 +31,7 @@ app.get('/cods/all', function(request,response){
   let client = new pg.Client(conString); // Pass the conString to pg, which creates a new client object
     client.connect(function(err) { // Use the client object to connect to our DB.
       if (err) console.error(err);
-      client.query('SELECT * FROM mds', function(err, result) { // Make a request to the DB
+      client.query('SELECT * FROM cods', function(err, result) { // Make a request to the DB
         if (err) console.error(err);
         response.send(result);
         client.end();
