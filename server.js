@@ -20,7 +20,7 @@ const conString = process.env.DATABASE_URL || 'postgres://localhost:5432';
 //Express Call
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static('./'));
+app.use(express.static('./public'));
 
 //Github Proxy Call
 app.get('/github/*', proxyGitHub);
@@ -77,7 +77,7 @@ app.post('/cods/insert', function(request, response) {
 // Almost all URL's go to index
 app.get('*', function(request, response) {
   console.log('New request:', request.url);
-  response.sendFile('index.html', { root: '.' });
+  response.sendFile('public/index.html', { root: '.' });
 });
 
 // Port Listener
