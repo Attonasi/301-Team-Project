@@ -1,7 +1,7 @@
 {
-  "name": "mvc-blog",
+  "name": "Death by Designs",
   "version": "1.0.0",
-  "description": "As we now complete our MVC conversation, we can refactor our app to use good MVC separation of concerns.",
+  "description": "A Code Fellows 301 project.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
