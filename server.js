@@ -32,6 +32,7 @@ app.use(express.static('./public'));
 app.get('/cods/all', function(request,response){
   // console.log('bob');
   let client = new pg.Client(conString); // Pass the conString to pg, which creates a new client object
+  console.log(conString);
     client.connect(function(err) { // Use the client object to connect to our DB.
       if (err) console.error(err);
       client.query('SELECT * FROM cods', function(err, result) { // Make a request to the DB
