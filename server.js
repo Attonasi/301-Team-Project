@@ -7,16 +7,16 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 const app = express();
-const conString = process.env.DATABASE_URL || 'postgres://127.0.0.1:5432';
-//console.log('bob');
+const conString = process.env.DATABASE_URL || 'postgres://localhost:5432';
+
   // Github Proxy Function
-  var proxyGitHub = function(request, response) {
-    console.log('Routing GitHub request for', request.params[0]);
-    (requestProxy({
-      url: 'https://api.github.com/' + request.params[0],
-      headers: { Authorization: 'token ' + process.env.GITHUB_TOKEN }
-    }))(request, response);
-  };
+  // var proxyGitHub = function(request, response) {
+  //   console.log('Routing GitHub request for', request.params[0]);
+  //   (requestProxy({
+  //     url: 'https://api.github.com/' + request.params[0],
+  //     headers: { Authorization: 'token ' + process.env.GITHUB_TOKEN }
+  //   }))(request, response);
+  // };
 
 //Express Call
 app.use(bodyParser.json());
@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
 //Github Proxy Call
-app.get('/github/*', proxyGitHub);
+// app.get('/github/*', proxyGitHub);
 
 app.get('/cods/all', function(request,response){
   // console.log('bob');
