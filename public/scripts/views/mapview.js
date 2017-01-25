@@ -98,6 +98,8 @@ $(function() {
     console.log(allMarkers);
   }
 
+
+
   // google.maps.event.addListener(allMarkers, 'click', function () {
   //   infowindow.setContent(this.html);
   //   infowindow.open(map, this);
