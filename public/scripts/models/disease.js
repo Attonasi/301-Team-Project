@@ -40,8 +40,9 @@
             console.table(Data.all);
           });
         }
-      }
-    )
+
+      })
+
   }
 
   Data.allStates = () => {

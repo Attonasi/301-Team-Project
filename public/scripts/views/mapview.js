@@ -80,8 +80,36 @@ $(function() {
     console.log(allMarkers);
 
   });
-
   function Marker(myLatlng, lat, lng) {
+
+
+    var state = $.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCIMaNgcvnH-Jqf57ZDoYzA5feP1dtEIrE`, function(data){
+
+      var target = data.results[data.results.length-2];
+      var long_name = target.address_components[0].long_name;
+      console.log(long_name);
+
+      var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        latitude: lat,
+        longitude: lng,
+        state: long_name
+        title: `${long_name}`,
+      });
+      allMarkers.push(marker);
+      console.log(allMarkers);
+    });
+
+  }
+
+
+
+  // google.maps.event.addListener(allMarkers, 'click', function () {
+  //   infowindow.setContent(this.html);
+  //   infowindow.open(map, this);
+  //   console.log('myLatlng');
+  // });
 
     var state = $.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCIMaNgcvnH-Jqf57ZDoYzA5feP1dtEIrE`, function(data){
 
