@@ -81,7 +81,8 @@ $(function() {
   function Marker(myLatlng, lat, lng) {
 
     var stuff = $.getJSON(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCIMaNgcvnH-Jqf57ZDoYzA5feP1dtEIrE`);
-    console.log(JSON.parse(stuff));
+    console.log(stuff);
+    console.log(stuff.responseText);
 
     // console.log(stuff.responseJSON.results[4].formatted_address);
 
