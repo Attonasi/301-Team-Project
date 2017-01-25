@@ -56,9 +56,9 @@ $(function() {
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
 
-google.maps.event.addListener(map, 'click', function (event) {
-  displayCoordinates(event.latLng);
-});
+  google.maps.event.addListener(map, 'click', function (event) {
+    displayCoordinates(event.latLng);
+  });
 
   function displayCoordinates(pnt) {
 
@@ -66,19 +66,29 @@ google.maps.event.addListener(map, 'click', function (event) {
     lat = lat.toFixed(4);
     var lng = pnt.lng();
     lng = lng.toFixed(4);
-    console.log('Latitude: ' + lat + '  Longitude: ' + lng);
+    map.setCenter(new google.maps.LatLng(lat, lng));
+    console.log(lat, lng);
+    var myLatlng = new google.maps.LatLng(lat, lng);
+
+    new Marker(myLatlng, lat, lng);
   }
 
   map.addListener('dblclick', function(){
     console.log('double click');
-    var myLatlng = new map.LatLng(latitude,longitude);
 
+  });
+
+  function Marker(myLatlng, lat, lng) {
     var marker = new google.maps.Marker({
       position: myLatlng,
       map: map,
-      title: 'Click to zoom'
+      latitude: lat,
+      longitude: lng,
+      title: ``
     });
-  })
+    allMarkers.push(marker);
+    console.log(allMarkers);
+  }
 
   // google.maps.event.addListener(allMarkers, 'click', function () {
   //   infowindow.setContent(this.html);
