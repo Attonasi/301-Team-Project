@@ -78,6 +78,7 @@ google.maps.event.addListener(map, 'click', function (event) {
       map: map,
       title: 'Click to zoom'
     });
+    
   })
 
   // google.maps.event.addListener(allMarkers, 'click', function () {
