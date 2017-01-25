@@ -79,13 +79,21 @@ $(function() {
   });
 
   function Marker(myLatlng, lat, lng) {
+
+    var stuff = $.getJSON(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCIMaNgcvnH-Jqf57ZDoYzA5feP1dtEIrE`);
+    console.log(JSON.parse(stuff));
+
+    // console.log(stuff.responseJSON.results[4].formatted_address);
+
     var marker = new google.maps.Marker({
       position: myLatlng,
       map: map,
       latitude: lat,
       longitude: lng,
-      title: ``
+      // title: `${state}`,
+      // state: state
     });
+
     allMarkers.push(marker);
     console.log(allMarkers);
   }
