@@ -21,19 +21,27 @@
           callback();
 
         } else {
+        //   $.getJSON('./data/five-leading-causes-of-death.json')
+        //   .then(response => {
+        //     response.forEach(item =>{
+        //       let data = new Data(item);
+        //       data.insertRecord();
+        //     })
+        //   })
+        // .then(() => Data.fetchAll(callback))
+        // .catch(console.error);
+        // }
           $.getJSON('./data/five-leading-causes-of-death.json')
-          .then(rawData => {
-            rawData.forEach(item =>{
-              let data = new Data(item);
-              data.insertRecord();
-            })
-          })
-        .then(() => Data.fetchAll(callback))
-        .catch(console.error);
+          .done(function(data) {
+            console.log(data);
+            console.log(data.length);
+            for(var i in data){
+              Data.all.push(data[i]);
+            }
+            console.table(Data.all);
+          });
         }
-      }
-    )
-
+      })
   }
 
   Data.allStates = () => {

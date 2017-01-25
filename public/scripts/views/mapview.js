@@ -85,6 +85,7 @@ $(function() {
       map: map,
       title: 'Click to zoom'
     });
+    
   })
 
   // google.maps.event.addListener(allMarkers, 'click', function () {
