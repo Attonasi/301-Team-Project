@@ -2,33 +2,26 @@
 
 $(function() {
 
-  var allLatlng = []; //returned from the API
   var allMarkers = []; //returned from the API
-  var infowindow = null;
-  var pos;
-  var userCords;
-  var tempMarkerHolder = [];
 
   //Start geolocation
-  if (navigator.geolocation) {
+  // var pos;
+  // var userCords;
 
-    function error(err) {
-      console.warn('ERROR(' + err.code + '): ' + err.message);
-    }
-
-    function success(pos){
-      userCords = pos.coords;
-
-      console.log('I am at line 24', userCords);
-      return userCords;
-    }
-
+  // if (navigator.geolocation) {
+  //   function error(err) {
+  //     console.warn('ERROR(' + err.code + '): ' + err.message);
+  //   }
+  //   function success(pos){
+  //     userCords = pos.coords;
+  //     console.log('I am at line 24', userCords);
+  //     return userCords;
+  //   }
     // Get the user's current position
-    navigator.geolocation.getCurrentPosition(success, error);
-
-  } else {
-    alert('Geolocation is not supported in your browser');
-  }
+    // navigator.geolocation.getCurrentPosition(success, error);
+  // } else {
+  //   alert('Geolocation is not supported in your browser');
+  // }
   //End Geo location
 
   //map options
@@ -46,15 +39,8 @@ $(function() {
     },
     scaleControl: false
   };
-
-	//Adding infowindow option
-  infowindow = new google.maps.InfoWindow({
-    content: 'holding...'
-  });
-
-	//Fire up Google maps and place inside the map-canvas div
+  // New Map
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
 
   google.maps.event.addListener(map, 'click', function (event) {
     displayCoordinates(event.latLng);
@@ -73,47 +59,32 @@ $(function() {
     new Marker(myLatlng, lat, lng);
   }
 
-  map.addListener('dblclick', function(){
-    console.log('double click');
-    console.log(allMarkers);
-
-  });
-
   function Marker(myLatlng, lat, lng) {
 
     var state = $.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCIMaNgcvnH-Jqf57ZDoYzA5feP1dtEIrE`, function(data){
 
       var target = data.results[data.results.length-2];
       var long_name = target.address_components[0].long_name;
-      console.log(long_name);
+      var short_name = target.address_components[0].short_name;
 
       var marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
         latitude: lat,
         longitude: lng,
-        title: `${long_name}`,
-        state: long_name
+        title: `${short_name}`,
+        state: long_name,
       });
+
+      $('.state-data').html(makeHTML(long_name, short_name));
       allMarkers.push(marker);
-      console.log(allMarkers);
     });
 
   }
 
-
-
-  // google.maps.event.addListener(allMarkers, 'click', function () {
-  //   infowindow.setContent(this.html);
-  //   infowindow.open(map, this);
-  //   console.log('myLatlng');
-  // });
-
-  // var marker = new google.maps.Marker({
-  //   position: myLatlng,
-  //   map: map,
-  //   title: 'Click to zoom'
-  // });
-
+  function makeHTML(state, abbr){
+    return `<h1>${state}</h1>
+            <h2>${abbr}<h2>`;
+  }
 
 });
