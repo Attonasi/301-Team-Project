@@ -77,28 +77,29 @@ $(function() {
 
   map.addListener('dblclick', function(){
     console.log('double click');
+    console.log(allMarkers);
 
   });
 
   function Marker(myLatlng, lat, lng) {
 
-    var stuff = $.getJSON(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCIMaNgcvnH-Jqf57ZDoYzA5feP1dtEIrE`);
-    console.log(stuff);
-    console.log(stuff.responseText);
+    var state = $.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCIMaNgcvnH-Jqf57ZDoYzA5feP1dtEIrE`, function(data){
 
-    // console.log(stuff.responseJSON.results[4].formatted_address);
+      var target = data.results[data.results.length-2];
+      var long_name = target.address_components[0].long_name;
+      console.log(long_name);
 
-    var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      latitude: lat,
-      longitude: lng,
-      // title: `${state}`,
-      // state: state
+      var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        latitude: lat,
+        longitude: lng,
+        title: `${long_name}`,
+        state: long_name
+      });
+      allMarkers.push(marker);
+      console.log(allMarkers);
     });
 
->>>>>>>
-    allMarkers.push(marker);
-    console.log(allMarkers);
   }
 });
