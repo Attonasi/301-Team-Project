@@ -55,26 +55,20 @@ $(function() {
 	//Fire up Google maps and place inside the map-canvas div
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-//set the markers.
-  map.addListener('click', function () {
 
-    if (navigator.geolocation) {
-      function error(err) {
-        console.warn('ERROR(' + err.code + '): ' + err.message);
-      }
-      function success(pos){
-        userCords = pos.coords;
-        console.log('I am at line 24', userCords);
-        return userCords;
-      }
-      navigator.geolocation.getCurrentPosition(success, error);
+google.maps.event.addListener(map, 'click', function (event) {
+  displayCoordinates(event.latLng);
+});
 
-    } else {
+  function displayCoordinates(pnt) {
 
-      alert('Geolocation is not supported in your browser');
-    }
-    console.log(userCords);
-  });
+    var lat = pnt.lat();
+    lat = lat.toFixed(4);
+    var lng = pnt.lng();
+    lng = lng.toFixed(4);
+    console.log('Latitude: ' + lat + '  Longitude: ' + lng);
+  }
+>>>>>>> one small victory
 
   map.addListener('dblclick', function(){
     console.log('double click');
@@ -85,7 +79,7 @@ $(function() {
       map: map,
       title: 'Click to zoom'
     });
-    
+
   })
 
   // google.maps.event.addListener(allMarkers, 'click', function () {
