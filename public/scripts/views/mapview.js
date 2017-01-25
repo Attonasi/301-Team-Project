@@ -55,37 +55,53 @@ $(function() {
 	//Fire up Google maps and place inside the map-canvas div
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-//set the markers.
-  map.addListener('click', function () {
 
-    if (navigator.geolocation) {
-      function error(err) {
-        console.warn('ERROR(' + err.code + '): ' + err.message);
-      }
-      function success(pos){
-        userCords = pos.coords;
-        console.log('I am at line 24', userCords);
-        return userCords;
-      }
-      navigator.geolocation.getCurrentPosition(success, error);
-
-    } else {
-
-      alert('Geolocation is not supported in your browser');
-    }
-    console.log(userCords);
+  google.maps.event.addListener(map, 'click', function (event) {
+    displayCoordinates(event.latLng);
   });
+
+  function displayCoordinates(pnt) {
+
+    var lat = pnt.lat();
+    lat = lat.toFixed(4);
+    var lng = pnt.lng();
+    lng = lng.toFixed(4);
+    map.setCenter(new google.maps.LatLng(lat, lng));
+    console.log(lat, lng);
+    var myLatlng = new google.maps.LatLng(lat, lng);
+
+    new Marker(myLatlng, lat, lng);
+  }
 
   map.addListener('dblclick', function(){
     console.log('double click');
-    var myLatlng = new map.LatLng(latitude,longitude);
+    console.log(allMarkers);
 
-    var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title: 'Click to zoom'
+  });
+
+  function Marker(myLatlng, lat, lng) {
+
+    var state = $.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCIMaNgcvnH-Jqf57ZDoYzA5feP1dtEIrE`, function(data){
+
+      var target = data.results[data.results.length-2];
+      var long_name = target.address_components[0].long_name;
+      console.log(long_name);
+
+      var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        latitude: lat,
+        longitude: lng,
+        title: `${long_name}`,
+        state: long_name
+      });
+      allMarkers.push(marker);
+      console.log(allMarkers);
     });
-  })
+
+  }
+
+
 
   // google.maps.event.addListener(allMarkers, 'click', function () {
   //   infowindow.setContent(this.html);
