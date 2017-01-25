@@ -19,7 +19,6 @@
         if (results.rows.length) {
           Data.loadAll(results.rows);
           callback();
-
         } else {
         //   $.getJSON('./data/five-leading-causes-of-death.json')
         //   .then(response => {
@@ -41,7 +40,9 @@
             console.table(Data.all);
           });
         }
+
       })
+
   }
 
   Data.allStates = () => {
