@@ -19,7 +19,6 @@
         if (results.rows.length) {
           Data.loadAll(results.rows);
           callback();
-
         } else {
           $.getJSON('./data/five-leading-causes-of-death.json')
           .then(rawData => {
@@ -33,7 +32,6 @@
         }
       }
     )
-
   }
 
   Data.allStates = () => {
