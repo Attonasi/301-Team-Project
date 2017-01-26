@@ -60,49 +60,6 @@ $(function() {
 
   function getState(myLatlng, lat, lng) {
 
-<<<<<<< HEAD
-
-  google.maps.event.addListener(map, 'click', function (event) {
-    displayCoordinates(event.latLng);
-  });
-
-  function displayCoordinates(pnt) {
-
-    var lat = pnt.lat();
-    lat = lat.toFixed(4);
-    var lng = pnt.lng();
-    lng = lng.toFixed(4);
-    map.setCenter(new google.maps.LatLng(lat, lng));
-    console.log(lat, lng);
-    var myLatlng = new google.maps.LatLng(lat, lng);
-
-    new Marker(myLatlng, lat, lng);
-  }
-
-  function displayCoordinates(pnt) {
-
-    var lat = pnt.lat();
-    lat = lat.toFixed(4);
-    var lng = pnt.lng();
-    lng = lng.toFixed(4);
-    map.setCenter(new google.maps.LatLng(lat, lng));
-    console.log(lat, lng);
-    var myLatlng = new google.maps.LatLng(lat, lng);
-
-    new Marker(myLatlng, lat, lng);
-  }
-
-  map.addListener('dblclick', function(){
-    console.log('double click');
-    console.log(allMarkers);
-
-  });
-
-
-  function Marker(myLatlng, lat, lng) {
-
-    var state = $.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCIMaNgcvnH-Jqf57ZDoYzA5feP1dtEIrE`, function(data){
-=======
 
     var state = $.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCIMaNgcvnH-Jqf57ZDoYzA5feP1dtEIrE`, function(data){
 
@@ -135,24 +92,5 @@ $(function() {
 
     return `<h1>${state}</h1>
             <h2>${abbr}<h2>`;
-  }
->>>>>>> 612ae8ecd1669a6ea3b5a048db3b759328210794
-
-      var target = data.results[data.results.length-2];
-      var long_name = target.address_components[0].long_name;
-      console.log(long_name);
-
-      var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        latitude: lat,
-        longitude: lng,
-        title: `${long_name}`,
-        state: long_name
-      });
-      allMarkers.push(marker);
-      console.log(allMarkers);
-    });
-
   }
 });
