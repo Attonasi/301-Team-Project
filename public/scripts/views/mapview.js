@@ -65,6 +65,10 @@ $(function() {
       var target = data.results[1].address_components;
       var long_name = target[target.length-2].long_name;
       var short_name = target[target.length-2].short_name;
+      if (long_name === 'United States'){
+        long_name = target[target.length-3].long_name;
+        short_name = target[target.length-3].short_name;
+      }
 
       // var marker = new google.maps.Marker({
       //   position: myLatlng,
