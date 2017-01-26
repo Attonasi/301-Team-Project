@@ -3,7 +3,7 @@
 // $(function(module) {
 
   var allStatesClicked = []; //returned from the API
-
+  var userInput;
   //Start geolocation
   // var pos;
   // var userCords;
@@ -56,7 +56,7 @@
     var myLatlng = new google.maps.LatLng(lat, lng);
 
     // getState(myLatlng, lat, lng);
-    getCurrentStateArr(Data.all);
+    getCurrentStateArr();
   }
 
   function getState(myLatlng, lat, lng) {
@@ -67,6 +67,7 @@
       var target = data.results[1].address_components;
       var long_name = target[target.length-2].long_name;
       var short_name = target[target.length-2].short_name;
+
       if (long_name === 'United States'){
         long_name = target[target.length-3].long_name;
         short_name = target[target.length-3].short_name;
@@ -85,15 +86,16 @@
       allStatesClicked.push(long_name);
       console.log(allStatesClicked);
       console.log(target);
-    });
 
-  }
+      userInput = long_name;
+    });
 
   function makeHTML(state, abbr){
 
     return `<h1>${state}</h1>
             <h2>${abbr}<h2>`;
-  }
 
+  }
+}
 
 // })(window);

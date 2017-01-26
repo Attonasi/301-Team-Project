@@ -10,15 +10,15 @@ var currentState = [];
 // }
 
 
-function getCurrentStateArr(arr){
+function getCurrentStateArr(userInput){
   getState(myLatlng, lat, lng);
-  currentState = arr.filter(function(obj) {
-    return state === obj.state;
+  Data.all.filter(function(ele, userInput){
+    return (ele.State === userInput
+      && ele.Year === 2015
+      && ele['Age Range'] === '0-54'
+      && ele.Benchmark === 'Floating'
+    ).then(currentState.push(this));
   });
 }
 
-console.log(currentState.filter(function(ele){
-  return ele.Year === 2015
-        && ele.Bencmark === 'Floating'
-        && ele.Age.Range === '0-54'
-}));
+console.log(currentState)
