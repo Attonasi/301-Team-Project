@@ -5,13 +5,9 @@ html, body {
   }
 
 
-body {
-	font-family: "Open Sans", sans-serif;
-	/* font-family: 'Libre Baskerville', serif; */
-	color: #686868;
-	font-size: 15px;
-	background-color: #6B7283;
-}
+/*#map-canvas {
+z-index: -2;
+}*/
 
 
 .clearfix:after {
@@ -21,53 +17,50 @@ body {
    clear: both;
 }
 
-.clear{
+#map-canvas  .clear{
 	clear: both;
 }
 
-a {
+#map-canvas  a {
 	text-decoration: none;
 	color: #79accd;
 }
 
-a:hover {
+#map-canvas a:hover {
 	color: #79accd;
 	text-decoration: underline;
 }
 
-h1, h2, h3, h4, h5, h6 {
+#map-canvas h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 17px;
 	font-weight: 300;
 	/* color: #ff5400; */
 }
 
-h1 {
+#map-canvas h1 {
 	font-size: 28px;
 }
 
-h2 {
+#map-canvas h2 {
 	font-size: 26px;
 }
 
-h3 {
+#map-canvas h3 {
 	font-size: 24px;
 	margin-bottom: 15px;
 }
 
-ul{
+#map-canvas ul{
 	list-style-type: square;
 	margin-left: 60px;
 	margin-bottom: 30px;
 }
 
-ul li{
+#map-canvas ul li{
 	line-height: 1.9;
 }
 
 
-.zipSearch{
-	display: none;
-}
 
 /* Popup */
 .markerPop{
@@ -87,10 +80,10 @@ ul li{
 
 
 /* tablets and desktop */
-@media only screen and (min-width: 416px) {
+@media only screen and (min-width: 845px) {
 
 
-	p {
+	#map-canvas p {
 		margin-bottom: 15px;
 		line-height: 20px;
 	}
@@ -160,7 +153,7 @@ ul li{
 }
 
 /* phones */
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 844px) {
 
 	.state-data {
 		position: absolute;
@@ -172,7 +165,7 @@ ul li{
 		background-color: grey;
 		color: black;
 	}
-	p {
+	#map-canvas p {
 		margin-bottom: 10px;
 		line-height: 26px;
 	}

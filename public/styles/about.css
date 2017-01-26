@@ -18,74 +18,103 @@
   margin-bottom: 20px;
   text-decoration: underline;
 }
-.about section {
-  width: 40%;
-  height:350px;
-  float: right;
-  margin: 20px 60px 20px 0px;
-  padding: 30px 60px 10px 60px;
-  background: rgba(239,	239, 239, .7);
-}
 
-.about article {
-  float: left;
-  width: 100%;
-}
+@media only screen and (min-width: 845px) {
 
-.about p {
-  width: 100%;
-}
+  .about{
+    z-index: -10000;
+  }
 
-.clear {
-  clear: left;
-}
+  .about section {
+    width: 45%;
+    height: 375px;
+    float: right;
+    margin: 5px;
+    padding: 10px;
+    background: rgba(239,	239, 239, .7);
+  }
 
-.about img{
-  width: 100px;
-  height:100px;
-  border-radius: 50%;
-}
-.about li{
-  display: inline;
-  list-style:none;
-  padding:20px;
+  .about article {
+    float: left;
+    width: 100%;
+  }
 
+  .about p {
+    width: 100%;
+    overflow: scroll;
+    height: 140px;
+  }
 
-}
-.about ul {
-  text-align: center;
-  margin-top: 50px;
-}
-.about .container {
-  width: 900px;
-  margin: 50px auto;
+  .clear {
+    clear: left;
+  }
 
-}
+  .about img{
+    width: 100px;
+    height:100px;
+    border-radius: 50%;
+  }
 
-.about article > a{
+  .about li{
+    display: inline;
+    list-style:none;
+    padding:20px;
+  }
+
+  .about ul {
+    text-align: center;
+    margin-top: 50px;
+  }
+}
+/*.about article > a{
   display: block;
   margin-top: 10px
-}
-.about nav a {
+}*/
+/*.about nav a {
   text-decoration: none;
-}
+}*/
 
-@media only screen and (max-width: 460px) {
-  .container{
-    width:50%;
+@media only screen and (max-width: 844px) {
+  .about{
+    width:99%;
+    z-index: -10000;
     }
     section {
       width: 95%;
-      height:100%;
+      height:300px%;
       float: none;
       margin: 0px;
       padding: 0px;
       color: black;
     }
+
+    .about p {
+      width: 100%;
+      overflow: scroll;
+      height: 150px;
+    }
+
+    .about img{
+      width: 100px;
+      height:100px;
+      border-radius: 50%;
+    }
+
+    .about li{
+      display: inline;
+      list-style:none;
+      padding:20px;
+    }
+
+    .about ul {
+      text-align: center;
+      margin-top: 50px;
+    }
+
     article {
-      margin-top: 20px;
+      /*margin-top: 20px;
       margin-bottom: 20px;
       background-color: #efefef;
-      padding: 10px 20px;
+      padding: 10px 20px;*/
     }
 }*/
