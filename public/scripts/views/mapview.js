@@ -1,7 +1,4 @@
 
-<<<<<<<
-
-=======
 $(function() {
 
   var allStatesClicked = []; //returned from the API
