@@ -3,7 +3,14 @@
   src:url("vendors/fonts/font-awesome/css/font-awesome.min.css");
 }
 
-body,html{height: 100%;}
+.about {
+  display: none;
+}
+
+body,html{
+  height: 100%;
+  background-color: black
+}
 .fa { color: #CCC;font-size: 1em;}
 .glyphicon{color: #CCC;font-size: 1em;}
 
@@ -34,6 +41,13 @@ nav.sidebar, .main{
 /* .....NavBar: Icon only with coloring/layout.....*/
 
 /*small/medium side display*/
+
+/*@media (max-width: 844px){
+  .about{
+
+  }
+}*/
+
 @media (min-width: 845px) {
 
  /*Allow main to be next to Nav*/
