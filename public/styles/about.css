@@ -1,45 +1,38 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald');
+/*@import url('https://fonts.googleapis.com/css?family=Oswald');*/
 
-.about {
+.about{
   display: none;
+  width: 100%;
+  background: black;
+  opacity: .7;
 }
 
-body {
-  background: url(http://www.thephotoargus.com/wp-content/uploads/2015/08/kerry-park5.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  font-family: Arial, Verdana, sans-serif;
-  color: #665544;
-}
-
-h1, a {
+.about h1, a {
   font-family: 'Oswald', sans-serif;
   color: black;
 }
 
-h1 {
+.about h1 {
   text-align: center;
   font-size: 50px;
   margin-bottom: 20px;
   text-decoration: underline;
 }
-section {
-  width: 30%;
+.about section {
+  width: 40%;
   height:350px;
-  float: left;
+  float: right;
   margin: 20px 60px 20px 0px;
   padding: 30px 60px 10px 60px;
   background: rgba(239,	239, 239, .7);
 }
 
-article {
+.about article {
   float: left;
   width: 100%;
 }
 
-p {
+.about p {
   width: 100%;
 }
 
@@ -47,39 +40,39 @@ p {
   clear: left;
 }
 
-img{
+.about img{
   width: 100px;
   height:100px;
   border-radius: 50%;
 }
-li{
+.about li{
   display: inline;
   list-style:none;
   padding:20px;
 
 
 }
-ul {
+.about ul {
   text-align: center;
   margin-top: 50px;
 }
-.container {
+.about .container {
   width: 900px;
   margin: 50px auto;
 
 }
 
-article > a{
+.about article > a{
   display: block;
   margin-top: 10px
 }
-nav a {
+.about nav a {
   text-decoration: none;
 }
 
 @media only screen and (max-width: 460px) {
   .container{
-    width:300px;
+    width:50%;
     }
     section {
       width: 95%;
@@ -95,4 +88,4 @@ nav a {
       background-color: #efefef;
       padding: 10px 20px;
     }
-}
+}*/
