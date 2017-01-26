@@ -3,8 +3,8 @@
 .about{
   display: none;
   width: 100%;
-  background: black;
-  opacity: .7;
+  background: grey;
+  /*opacity: .7;*/
 }
 
 .about h1, a {
@@ -23,6 +23,7 @@
 
   .about{
     z-index: -10000;
+    overflow: hidden;
   }
 
   .about section {
@@ -41,7 +42,7 @@
 
   .about p {
     width: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
     height: 140px;
   }
 
@@ -75,11 +76,12 @@
 }*/
 
 @media only screen and (max-width: 844px) {
-  .about{
+  .about {
     width:99%;
-    z-index: -10000;
-    }
-    section {
+    overflow-x: hidden;
+  }
+
+    .about section {
       width: 95%;
       height:300px%;
       float: none;
@@ -111,10 +113,8 @@
       margin-top: 50px;
     }
 
-    article {
-      /*margin-top: 20px;
-      margin-bottom: 20px;
-      background-color: #efefef;
-      padding: 10px 20px;*/
+    .about article {
+      padding-left: 5%;
     }
-}*/
+
+}
