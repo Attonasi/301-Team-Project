@@ -13,12 +13,12 @@
   }
 
   Data.fetchAll = function() {
-    $.get('/cods/all')
-    .then(
-      results => {
-        if (results.rows.length) {
-          Data.loadAll(results.rows);
-        } else {
+    // $.get('/cods/all')
+    // .then(
+    //   results => {
+    //     if (results.rows.length) {
+    //       Data.loadAll(results.rows);
+    //     } else {
 
           $.getJSON('./data/Death.json')
           .then(rawData => {
@@ -28,14 +28,14 @@
               // data.insertRecord();
             })
           })
-        .then(() => Data.fetchAll())
-        .catch(console.error);
+        // .then(() => Data.fetchAll())
+        // .catch(console.error);
 
         }
 
-      })
-
-  }
+  //     })
+  //
+  // }
 
   Data.allStates = () => {
     return Data.all.map(data => data.state)

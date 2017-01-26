@@ -1,9 +1,9 @@
 'use strict';
 
-$(function() {
+// $(function(module) {
 
   var allStatesClicked = []; //returned from the API
-
+  var userInput;
   //Start geolocation
   // var pos;
   // var userCords;
@@ -55,7 +55,8 @@ $(function() {
     map.setCenter(new google.maps.LatLng(lat, lng));
     var myLatlng = new google.maps.LatLng(lat, lng);
 
-    getState(myLatlng, lat, lng);
+    // getState(myLatlng, lat, lng);
+    getCurrentStateArr();
   }
 
   function getState(myLatlng, lat, lng) {
@@ -66,6 +67,7 @@ $(function() {
       var target = data.results[1].address_components;
       var long_name = target[target.length-2].long_name;
       var short_name = target[target.length-2].short_name;
+
       if (long_name === 'United States'){
         long_name = target[target.length-3].long_name;
         short_name = target[target.length-3].short_name;
@@ -84,16 +86,24 @@ $(function() {
       allStatesClicked.push(long_name);
       console.log(allStatesClicked);
       console.log(target);
+
+      userInput = long_name;
     });
 
-  }
-
   function makeHTML(state, abbr){
+
+
+    return `<h1>${state}</h1>
+            <h2>${abbr}<h2>`;
+
+
     // function call to retrieve data from the model
     return `<h5>Top 5 causes of Death in ${state}</h5>`
             //
             //
             ;
-  }
 
-});
+  }
+}
+
+// })(window);
