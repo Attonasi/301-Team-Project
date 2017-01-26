@@ -1,6 +1,6 @@
 'use strict';
 
-$(function() {
+// $(function(module) {
 
   var allStatesClicked = []; //returned from the API
 
@@ -55,7 +55,8 @@ $(function() {
     map.setCenter(new google.maps.LatLng(lat, lng));
     var myLatlng = new google.maps.LatLng(lat, lng);
 
-    getState(myLatlng, lat, lng);
+    // getState(myLatlng, lat, lng);
+    getCurrentStateArr(Data.all);
   }
 
   function getState(myLatlng, lat, lng) {
@@ -93,4 +94,6 @@ $(function() {
     return `<h1>${state}</h1>
             <h2>${abbr}<h2>`;
   }
-});
+
+
+// })(window);
