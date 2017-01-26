@@ -12,36 +12,29 @@
     Data.all = rows.map(ele => new Data(ele));
   }
 
-  Data.fetchAll = callback => {
+  Data.fetchAll = function() {
     $.get('/cods/all')
     .then(
       results => {
         if (results.rows.length) {
           Data.loadAll(results.rows);
-          callback();
-
         } else {
-        //   $.getJSON('./data/five-leading-causes-of-death.json')
-        //   .then(response => {
-        //     response.forEach(item =>{
-        //       let data = new Data(item);
-        //       data.insertRecord();
-        //     })
-        //   })
-        // .then(() => Data.fetchAll(callback))
-        // .catch(console.error);
-        // }
-          $.getJSON('./data/five-leading-causes-of-death.json')
-          .done(function(data) {
-            console.log(data);
-            console.log(data.length);
-            for(var i in data){
-              Data.all.push(data[i]);
-            }
-            console.table(Data.all);
-          });
+
+          $.getJSON('./data/Death.json')
+          .then(rawData => {
+            rawData.forEach(item =>{
+              let data = new Data(item);
+              Data.all.push(data);
+              // data.insertRecord();
+            })
+          })
+        .then(() => Data.fetchAll())
+        .catch(console.error);
+
         }
+
       })
+
   }
 
   Data.allStates = () => {
@@ -52,25 +45,25 @@
                   },[])
   }
 
-  Data.prototype.insertRecord = function (callback) {
-    $.post('/cods/insert', {
-      age_range: this.age_range,
-      benchmark: this.benchmark,
-      cause_of_death: this.cause_of_death,
-      expected_deaths:this.expected_deaths,
-      hhs_region: this.hhs_region,
-      locality: this.locality,
-      observed_deaths: this.observed_deaths,
-      population: this.population,
-      potentially_excess_deaths: this.potentially_excess_deaths,
-      state: this.state,
-      state_fips_code: this.state_fips_code,
-      year:this.year
-    })
-    .then(console.log)
-    .then(callback);
-  };
+  // Data.prototype.insertRecord = function (callback) {
+  //   $.post('/cods/insert', {
+  //     age_range: this.age_range,
+  //     benchmark: this.benchmark,
+  //     cause_of_death: this.cause_of_death,
+  //     expected_deaths:this.expected_deaths,
+  //     hhs_region: this.hhs_region,
+  //     locality: this.locality,
+  //     observed_deaths: this.observed_deaths,
+  //     population: this.population,
+  //     potentially_excess_deaths: this.potentially_excess_deaths,
+  //     state: this.state,
+  //     state_fips_code: this.state_fips_code,
+  //     year:this.year
+  //   })
+  //   .then(console.log)
+  //   .then(callback);
+  // };
 
-
+Data.fetchAll();
   module.Data = Data
 })(window);
