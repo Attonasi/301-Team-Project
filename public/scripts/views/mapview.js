@@ -4,7 +4,7 @@
 =======
 $(function() {
 
-  var allMarkers = []; //returned from the API
+  var allStatesClicked = []; //returned from the API
 
   //Start geolocation
   // var pos;
@@ -45,47 +45,49 @@ $(function() {
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
   google.maps.event.addListener(map, 'click', function (event) {
-    displayCoordinates(event.latLng);
+    getCoordinates(event.latLng);
   });
 
-  function displayCoordinates(pnt) {
+  function getCoordinates(pnt) {
 
     var lat = pnt.lat();
     lat = lat.toFixed(4);
     var lng = pnt.lng();
     lng = lng.toFixed(4);
     map.setCenter(new google.maps.LatLng(lat, lng));
-    console.log(lat, lng);
     var myLatlng = new google.maps.LatLng(lat, lng);
 
-    new Marker(myLatlng, lat, lng);
+    getState(myLatlng, lat, lng);
   }
 
-  function Marker(myLatlng, lat, lng) {
+  function getState(myLatlng, lat, lng) {
 
 
     var state = $.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCIMaNgcvnH-Jqf57ZDoYzA5feP1dtEIrE`, function(data){
 
-      var target = data.results[data.results.length-2];
-      var long_name = target.address_components[0].long_name;
-      var short_name = target.address_components[0].short_name;
+      var target = data.results[1].address_components;
+      var long_name = target[target.length-2].long_name;
+      var short_name = target[target.length-2].short_name;
 
-      var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        latitude: lat,
-        longitude: lng,
-        title: `${short_name}`,
-        state: long_name,
-      });
+      // var marker = new google.maps.Marker({
+      //   position: myLatlng,
+      //   map: map,
+      //   latitude: lat,
+      //   longitude: lng,
+      //   title: `${short_name}`,
+      //   state: long_name,
+      // });
 
       $('.state-data').html(makeHTML(long_name, short_name));
-      allMarkers.push(marker);
+      allStatesClicked.push(long_name);
+      console.log(allStatesClicked);
+      console.log(target);
     });
 
   }
 
   function makeHTML(state, abbr){
+
     return `<h1>${state}</h1>
             <h2>${abbr}<h2>`;
   }
