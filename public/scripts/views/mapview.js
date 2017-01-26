@@ -1,5 +1,7 @@
-'use strict';
 
+<<<<<<<
+
+=======
 $(function() {
 
   var allStatesClicked = []; //returned from the API
@@ -59,6 +61,7 @@ $(function() {
   }
 
   function getState(myLatlng, lat, lng) {
+
 
     var state = $.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCIMaNgcvnH-Jqf57ZDoYzA5feP1dtEIrE`, function(data){
 

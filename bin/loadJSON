@@ -21,7 +21,7 @@ const help = () => {
 
 function main () {
   db.createTable()
-  .then(() => db.readJSON('five-leading-causes-of-death.json'))
+  .then(() => db.readJSON('Death.json'))
   .then(() => success())
   .catch(err => {
     help()
