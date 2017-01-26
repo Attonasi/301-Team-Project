@@ -92,8 +92,16 @@
 
   function makeHTML(state, abbr){
 
+
     return `<h1>${state}</h1>
             <h2>${abbr}<h2>`;
+
+
+    // function call to retrieve data from the model
+    return `<h5>Top 5 causes of Death in ${state}</h5>`
+            //
+            //
+            ;
 
   }
 }
