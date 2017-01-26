@@ -87,18 +87,8 @@ ul li{
 
 
 /* tablets and desktop */
-@media only screen and (min-width: 361px) {
+@media only screen and (min-width: 416px) {
 
-	.state-data {
-		position: absolute;
-		bottom: 0px;
-		right: 0px;
-		border: 2px red solid;
-		width: 40%;
-		z-index: 2;
-		background-color: grey;
-		color: black;
-	}
 
 	p {
 		margin-bottom: 15px;
@@ -156,11 +146,32 @@ ul li{
 		background-color: #6B7283;
 		border: 1px solid #BE757E;
 	}
+
+	.state-data {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		border: 2px red solid;
+		width: 40%;
+		z-index: 2;
+		background-color: grey;
+		color: black;
+	}
 }
 
 /* phones */
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 415px) {
 
+	.state-data {
+		position: absolute;
+		bottom: 0px;
+		right: 0px;
+		border: 2px red solid;
+		width: 40%;
+		z-index: 2;
+		background-color: grey;
+		color: black;
+	}
 	p {
 		margin-bottom: 10px;
 		line-height: 26px;
@@ -215,13 +226,4 @@ ul li{
 		border: 1px solid #BE757E;
 	}
 
-	.state-data {
-		color: black;
-		position: absolute;
-		top: 0px;
-		right: 0px;
-		border: 2px red solid;
-		width: 40%;
-		z-index: 2;
-	}
 }
