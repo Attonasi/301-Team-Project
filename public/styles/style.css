@@ -34,7 +34,7 @@ nav.sidebar, .main{
 /* .....NavBar: Icon only with coloring/layout.....*/
 
 /*small/medium side display*/
-@media (min-width: 768px) {
+@media (min-width: 845px) {
 
  /*Allow main to be next to Nav*/
  .main{
