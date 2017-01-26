@@ -19,6 +19,7 @@
         if (results.rows.length) {
           Data.loadAll(results.rows);
         } else {
+
           $.getJSON('./data/Death.json')
           .then(rawData => {
             rawData.forEach(item =>{
@@ -29,9 +30,11 @@
           })
         .then(() => Data.fetchAll())
         .catch(console.error);
+
         }
-      }
-    )
+
+      })
+
   }
 
   Data.allStates = () => {

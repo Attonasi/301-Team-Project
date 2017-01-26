@@ -85,8 +85,20 @@ ul li{
 	height: 35px !important;
 }
 
+
 /* tablets and desktop */
 @media only screen and (min-width: 361px) {
+
+	.state-data {
+		position: absolute;
+		bottom: 0px;
+		right: 0px;
+		border: 2px red solid;
+		width: 40%;
+		z-index: 2;
+		background-color: grey;
+		color: black;
+	}
 
 	p {
 		margin-bottom: 15px;
@@ -201,5 +213,15 @@ ul li{
 		font-size: 24px;
 		background-color: #6B7283;
 		border: 1px solid #BE757E;
+	}
+
+	.state-data {
+		color: black;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		border: 2px red solid;
+		width: 40%;
+		z-index: 2;
 	}
 }
