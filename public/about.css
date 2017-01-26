@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 
+.about {
+  display: none;
+}
+
 body {
   background: url(http://www.thephotoargus.com/wp-content/uploads/2015/08/kerry-park5.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
