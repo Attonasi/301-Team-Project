@@ -55,15 +55,13 @@
     map.setCenter(new google.maps.LatLng(lat, lng));
     var myLatlng = new google.maps.LatLng(lat, lng);
 
-    // getState(myLatlng, lat, lng);
-    getCurrentStateArr();
+    getState(myLatlng, lat, lng);
   }
 
   function getState(myLatlng, lat, lng) {
 
-
-    var state = $.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCIMaNgcvnH-Jqf57ZDoYzA5feP1dtEIrE`, function(data){
-
+    $.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCIMaNgcvnH-Jqf57ZDoYzA5feP1dtEIrE`)
+    .done((data)=>{
       var target = data.results[1].address_components;
       var long_name = target[target.length-2].long_name;
       var short_name = target[target.length-2].short_name;
@@ -72,38 +70,20 @@
         long_name = target[target.length-3].long_name;
         short_name = target[target.length-3].short_name;
       }
-
-      // var marker = new google.maps.Marker({
-      //   position: myLatlng,
-      //   map: map,
-      //   latitude: lat,
-      //   longitude: lng,
-      //   title: `${short_name}`,
-      //   state: long_name,
-      // });
-
-      $('.state-data').html(makeHTML(long_name, short_name));
       allStatesClicked.push(long_name);
-      console.log(allStatesClicked);
-      console.log(target);
+      $('.state-data').html(makeHTML(long_name, myLatlng, lat, lng));
+  });
 
-      userInput = long_name;
-    });
+  function makeHTML(state, myLatlng, lat, lng){
 
-  function makeHTML(state, abbr){
+    let currentState = getCurrentStateArr(state);
 
-
+    console.log(currentState);
     return `<h1>${state}</h1>
-            <h2>${abbr}<h2>`;
+            <h2><h2>`;
+    }
 
 
-    // function call to retrieve data from the model
-    return `<h5>Top 5 causes of Death in ${state}</h5>`
-            //
-            //
-            ;
-
-  }
-}
 
 // })(window);
+}

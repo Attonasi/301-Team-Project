@@ -1,6 +1,6 @@
 'use strict';
 
-var currentState = [];
+
 
 
 // function clickStateInfo(e) {
@@ -9,16 +9,20 @@ var currentState = [];
 //   console.log(clickedState);
 // }
 
+function getCurrentStateArr(state){
 
-function getCurrentStateArr(userInput){
-  getState(myLatlng, lat, lng);
-  Data.all.filter(function(ele, userInput){
-    return (ele.State === userInput
+  var currentState = [];
+
+  Data.all.filter(function(ele){
+    return (ele.State === state
       && ele.Year === 2015
       && ele['Age Range'] === '0-54'
       && ele.Benchmark === 'Floating'
-    ).then(currentState.push(this));
+      && ele.Locality === 'All'
+    );
+  })
+  .forEach(ele => {
+    currentState.push(ele);
   });
+  return currentState;
 }
-
-console.log(currentState)

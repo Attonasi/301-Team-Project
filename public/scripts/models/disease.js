@@ -13,36 +13,26 @@
   }
 
   Data.fetchAll = function() {
-    // $.get('/cods/all')
-    // .then(
-    //   results => {
-    //     if (results.rows.length) {
-    //       Data.loadAll(results.rows);
-    //     } else {
 
-          $.getJSON('./data/Death.json')
-          .then(rawData => {
-            rawData.forEach(item =>{
-              let data = new Data(item);
-              Data.all.push(data);
-              // data.insertRecord();
-            })
-          })
-        // .then(() => Data.fetchAll())
-        // .catch(console.error);
+    $.getJSON('/data/Death.json', function(data){
+      Data.all = data
+      console.log(data);
+    })
+    // .then(rawData => {
+    //   rawData.forEach(item =>{
+    //     let data = new Data(item);
+    //     Data.all.push(data);
+        // data.insertRecord();
+      }
 
-        }
 
-  //     })
-  //
-  // }
 
   Data.allStates = () => {
     return Data.all.map(data => data.state)
-                  .reduce((names, name) =>{
-                    if (names.indexOf(name)=== -1) names.push(name);
-                    return names;
-                  },[])
+                   .reduce((names, name) =>{
+                     if (names.indexOf(name)=== -1) names.push(name);
+                     return names;
+                   },[])
   }
 
   // Data.prototype.insertRecord = function (callback) {
@@ -64,6 +54,6 @@
   //   .then(callback);
   // };
 
-Data.fetchAll();
+  Data.fetchAll();
   module.Data = Data
 })(window);
