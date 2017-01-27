@@ -144,10 +144,10 @@ z-index: -2;
 		position: absolute;
 		top: 0px;
 		right: 0px;
-		border: 2px red solid;
+		border: 5px black solid;
 		width: 30%;
 		z-index: 2;
-		background-color: grey;
+		background-color: #E94544;
 		color: black;
 	}
 }
@@ -159,10 +159,10 @@ z-index: -2;
 		position: absolute;
 		bottom: 0px;
 		right: 0px;
-		border: 2px black solid;
+		border: 4px black solid;
 		width: 35%;
 		z-index: 2;
-		background-color: grey;
+		background-color: #E94544;
 		color: black;
 	}
 
