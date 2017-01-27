@@ -16,7 +16,7 @@
 
     $.getJSON('/data/Death.json', function(data){
       Data.all = data
-      console.log(data);
+      // console.log(data);
     })
     // .then(rawData => {
     //   rawData.forEach(item =>{
