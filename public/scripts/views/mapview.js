@@ -71,19 +71,24 @@
         short_name = target[target.length-3].short_name;
       }
       allStatesClicked.push(long_name);
-      $('.state-data').html(makeHTML(long_name, myLatlng, lat, lng));
+      $('.state-data').html(makeHTML(long_name));
   });
-
-  function makeHTML(state, myLatlng, lat, lng){
+}
+  function makeHTML(state){
 
     let currentState = getCurrentStateArr(state);
 
-    console.log(currentState);
     return `<h1>${state}</h1>
-            <h2><h2>`;
-    }
+    <h3>Heart Disease ${currentState[0]['Observed Deaths']}</h3>
+    <h3>Cancer ${currentState[1]['Observed Deaths']}</h3>
+    <h3>Stroke ${currentState[2]['Observed Deaths']}</h3>
+    <h3>Respiratory ${currentState[3]['Observed Deaths']}</h3>
+    <h3>Accidents ${currentState[4]['Observed Deaths']}</h3>`
+
+}
+
+//
 
 
 
 // })(window);
-}
