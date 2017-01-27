@@ -160,10 +160,17 @@ z-index: -2;
 		bottom: 0px;
 		right: 0px;
 		border: 2px red solid;
-		width: 40%;
+		width: 35%;
 		z-index: 2;
 		background-color: grey;
 		color: black;
+	}
+
+	.state-data h1 {
+		font-size: 25px;
+	}
+	.state-data h3 {
+		font-size: 15px;
 	}
 	#map-canvas p {
 		margin-bottom: 10px;
