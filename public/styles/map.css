@@ -140,12 +140,31 @@ z-index: -2;
 		border: 1px solid #BE757E;
 	}
 
-	.state-data {
+	/*.state-data {
 		position: absolute;
 		top: 0px;
 		right: 0px;
 		border: 2px red solid;
 		width: 30%;
+		z-index: 2;
+		background-color: grey;
+		color: black;
+	}*/
+	#chartcontainer {
+		background-color: #333;
+    width: 400px;
+    height: 400px;
+    border-radius: 5px;
+    overflow: hidden;
+		}
+
+	#map-chart {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		border: 2px red solid;
+		width: 30%;
+		height: 30%;
 		z-index: 2;
 		background-color: grey;
 		color: black;
