@@ -6,7 +6,7 @@ const pg = require('pg');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 
 const app = express();
 const conString = process.env.DATABASE_URL || 'postgres://postgres:Joy1is1me!@localhost:5432/postgres';
