@@ -1,5 +1,7 @@
 /*@import url('https://fonts.googleapis.com/css?family=Oswald');*/
 
+.fa-2x{ color: grey; font-size: 2.5em; display:inline-block; padding-right: 0.5em;}
+
 .about{
   display: none;
   width: 100%;
