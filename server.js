@@ -9,11 +9,11 @@ const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 
 const app = express();
-// const conString = process.env.DATABASE_URL || 'postgres://localhost:5432';
 
-// const conString = 'postgres://localhost:5432';
-// const client = new pg.Client(conString);
-// client.connect();
+const conString = process.env.DATABASE_URL || 'postgres://localhost:5432';
+
+const client = new pg.Client(conString);
+client.connect();
 
   // Github Proxy Function
 var proxyGitHub = function(request, response) {
@@ -116,7 +116,7 @@ app.post('/cods/insert', function(request, response) {
       [
         request.body.age_range,
         request.body.benchmark,
-        request.body.cuase_of_death,
+        request.body.cause_of_death,
         request.body.expected_deaths,
         request.body.hhs_region,
         request.body.locality,
