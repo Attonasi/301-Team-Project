@@ -10,22 +10,28 @@
 
   Data.loadAll = rows => {
     Data.all = rows.map(ele => new Data(ele));
-  }
+  };
 
-  Data.fetchAll = function() {
-
-    $.getJSON('/data/Death.json', function(data){
-      Data.all = data
-      // console.log(data);
+  Data.fetchAll = callback => {
+    $.get('/cods/all')
+    .then(function(results) {
+      if(results.rows.length){
+        Data.loadAll(results.rows);
+        callback();
+      } else {
+    $.getJSON('/data/Deathsub.json')
+    .then(rawData => {
+      rawData.forEach(item =>{
+        let data = new Data(item);
+        // Data.all.push(data);
+        data.insertRecord();
+      })
     })
-    // .then(rawData => {
-    //   rawData.forEach(item =>{
-    //     let data = new Data(item);
-    //     Data.all.push(data);
-        // data.insertRecord();
+    .then(() => Data.fetchAll(callback))
+    .catch(console.error);
       }
-
-
+    })
+  };
 
   Data.allStates = () => {
     return Data.all.map(data => data.state)
@@ -33,27 +39,27 @@
                      if (names.indexOf(name)=== -1) names.push(name);
                      return names;
                    },[])
-  }
+  };
 
-  // Data.prototype.insertRecord = function (callback) {
-  //   $.post('/cods/insert', {
-  //     age_range: this.age_range,
-  //     benchmark: this.benchmark,
-  //     cause_of_death: this.cause_of_death,
-  //     expected_deaths:this.expected_deaths,
-  //     hhs_region: this.hhs_region,
-  //     locality: this.locality,
-  //     observed_deaths: this.observed_deaths,
-  //     population: this.population,
-  //     potentially_excess_deaths: this.potentially_excess_deaths,
-  //     state: this.state,
-  //     state_fips_code: this.state_fips_code,
-  //     year:this.year
-  //   })
-  //   .then(console.log)
-  //   .then(callback);
-  // };
+  Data.prototype.insertRecord = function (callback) {
+    $.post('/cods/insert', {
+      age_range: this.age_range,
+      benchmark: this.benchmark,
+      cause_of_death: this.cause_of_death,
+      expected_deaths:this.expected_deaths,
+      hhs_region: this.hhs_region,
+      locality: this.locality,
+      observed_deaths: this.observed_deaths,
+      population: this.population,
+      potentially_excess_deaths: this.potentially_excess_deaths,
+      state: this.state,
+      state_fips_code: this.state_fips_code,
+      year:this.year
+    })
+    .then(console.log)
+    .then(callback);
+  };
 
-  Data.fetchAll();
-  module.Data = Data
+  Data.fetchAll(diseaseController.index);
+  module.Data = Data;
 })(window);

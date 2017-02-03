@@ -21,7 +21,7 @@ const help = () => {
 
 function main () {
   db.createTable()
-  .then(() => db.readJSON('Death.json'))
+  .then(() => db.readJSON('Deathsub.json'))
   .then(() => success())
   .catch(err => {
     help()

@@ -26,7 +26,7 @@ function Selected(obj) {
 function getCurrentStateArr(state){
 
   currentState = [];
-
+console.log("createstate", state);
   heartArray = [];
   heartData = [];
 
@@ -46,10 +46,9 @@ function getCurrentStateArr(state){
   Data.all.filter(function(ele){
     return (ele.State === state
       && ele['Cause of Death'] === 'Heart Disease'
-      && ele['Age Range'] === '0-54'
-      && ele.Benchmark === 'Floating'
       && ele.Locality === 'All'
     );
+    console.log("filter",state);
   })
   .forEach(ele => {
     heartArray.push(ele) && heartData.push(ele['Observed Deaths']);
@@ -58,8 +57,6 @@ function getCurrentStateArr(state){
   Data.all.filter(function(ele){
     return (ele.State === state
       && ele['Cause of Death'] === 'Cancer'
-      && ele['Age Range'] === '0-54'
-      && ele.Benchmark === 'Floating'
       && ele.Locality === 'All'
     );
   })
@@ -70,8 +67,6 @@ function getCurrentStateArr(state){
   Data.all.filter(function(ele){
     return (ele.State === state
       && ele['Cause of Death'] === 'Stroke'
-      && ele['Age Range'] === '0-54'
-      && ele.Benchmark === 'Floating'
       && ele.Locality === 'All'
     );
   })
@@ -82,8 +77,6 @@ function getCurrentStateArr(state){
   Data.all.filter(function(ele){
     return (ele.State === state
       && ele['Cause of Death'] === 'Chronic Lower Respiratory Disease'
-      && ele['Age Range'] === '0-54'
-      && ele.Benchmark === 'Floating'
       && ele.Locality === 'All'
     );
   })
@@ -94,15 +87,14 @@ function getCurrentStateArr(state){
   Data.all.filter(function(ele){
     return (ele.State === state
       && ele['Cause of Death'] === 'Unintentional Injury'
-      && ele['Age Range'] === '0-54'
-      && ele.Benchmark === 'Floating'
       && ele.Locality === 'All'
     );
   })
   .forEach(ele => {
     uninArray.push(ele) && uninData.push(ele['Observed Deaths']);
   });
-
+  // && ele['Age Range'] === '0-54'
+  // && ele.Benchmark === 'Floating'
   console.log(heartArray);
   console.log(heartData);
   console.log(cancerArray);
