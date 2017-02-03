@@ -72,6 +72,7 @@
       }
       allStatesClicked.push(long_name);
       // $('.state-data').html(makeHTML(long_name));
+      console.log("state name",long_name);
       $('#map-chart').html(drawChart(long_name));
   });
 }
