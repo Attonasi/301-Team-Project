@@ -12,23 +12,22 @@
     Data.all = rows.map(ele => new Data(ele));
   };
 
-  Data.fetchAll = callback => {
+  Data.fetchAll = function() {
     $.get('/cods/all')
     .then(function(results) {
       if(results.rows.length){
         Data.loadAll(results.rows);
-        callback();
       } else {
     $.getJSON('/data/Deathsub.json')
     .then(rawData => {
       rawData.forEach(item =>{
         let data = new Data(item);
-        // Data.all.push(data);
+        Data.all.push(data);
         data.insertRecord();
       })
     })
-    .then(() => Data.fetchAll(callback))
-    .catch(console.error);
+    // .then(() => Data.fetchAll(callback))
+    // .catch(console.error);
       }
     })
   };
@@ -60,6 +59,6 @@
     .then(callback);
   };
 
-  Data.fetchAll(diseaseController.index);
+  Data.fetchAll();
   module.Data = Data;
 })(window);

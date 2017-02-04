@@ -26,7 +26,8 @@ function Selected(obj) {
 function getCurrentStateArr(state){
 
   currentState = [];
-console.log("createstate", state);
+  console.log("createstate", state);
+
   heartArray = [];
   heartData = [];
 
@@ -44,54 +45,55 @@ console.log("createstate", state);
 
 //////////////// FOR STATES ///////////////////////////////
   Data.all.filter(function(ele){
-    return (ele.State === state
-      && ele['Cause of Death'] === 'Heart Disease'
-      && ele.Locality === 'All'
+    return (ele.state === state
+      && ele.cause_of_death === 'Heart Disease'
+      && ele.locality === 'All'
     );
-    console.log("filter",state);
   })
   .forEach(ele => {
-    heartArray.push(ele) && heartData.push(ele['Observed Deaths']);
+    heartArray.push(ele) && heartData.push(ele.observed_deaths);
+  });
+
+  // console.log("filter",state);
+
+  Data.all.filter(function(ele){
+    return (ele.state === state
+      && ele.cause_of_death === 'Cancer'
+      && ele.locality === 'All'
+    );
+  })
+  .forEach(ele => {
+    cancerArray.push(ele) && cancerData.push(ele.observed_deaths);
   });
 
   Data.all.filter(function(ele){
-    return (ele.State === state
-      && ele['Cause of Death'] === 'Cancer'
-      && ele.Locality === 'All'
+    return (ele.state === state
+      && ele.cause_of_death === 'Stroke'
+      && ele.locality === 'All'
     );
   })
   .forEach(ele => {
-    cancerArray.push(ele) && cancerData.push(ele['Observed Deaths']);
+    strokeArray.push(ele) && strokeData.push(ele.observed_deaths);
   });
 
   Data.all.filter(function(ele){
-    return (ele.State === state
-      && ele['Cause of Death'] === 'Stroke'
-      && ele.Locality === 'All'
+    return (ele.state === state
+      && ele.cause_of_death === 'Chronic Lower Respiratory Disease'
+      && ele.locality === 'All'
     );
   })
   .forEach(ele => {
-    strokeArray.push(ele) && strokeData.push(ele['Observed Deaths']);
+    respArray.push(ele) && respData.push(ele.observed_deaths);
   });
 
   Data.all.filter(function(ele){
-    return (ele.State === state
-      && ele['Cause of Death'] === 'Chronic Lower Respiratory Disease'
-      && ele.Locality === 'All'
+    return (ele.state === state
+      && ele.cause_of_death === 'Unintentional Injury'
+      && ele.locality === 'All'
     );
   })
   .forEach(ele => {
-    respArray.push(ele) && respData.push(ele['Observed Deaths']);
-  });
-
-  Data.all.filter(function(ele){
-    return (ele.State === state
-      && ele['Cause of Death'] === 'Unintentional Injury'
-      && ele.Locality === 'All'
-    );
-  })
-  .forEach(ele => {
-    uninArray.push(ele) && uninData.push(ele['Observed Deaths']);
+    uninArray.push(ele) && uninData.push(ele.observed_deaths);
   });
   // && ele['Age Range'] === '0-54'
   // && ele.Benchmark === 'Floating'
