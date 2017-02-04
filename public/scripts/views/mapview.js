@@ -58,7 +58,7 @@
     getState(myLatlng, lat, lng);
   }
 
-  function getState(myLatlng, lat, lng) {
+function getState(myLatlng, lat, lng) {
 
     $.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyDpWkIatEG3SKn0Dt3GGKf4NG3U9vFMS04`)
     .done((data)=>{
@@ -190,6 +190,10 @@ function drawChart(state) {
     }]
   },
   options: {
+    title: {
+      display: true,
+      text: state
+    },
     legend: {labels:{fontColor:"black", fontSize: 14}}
   }
 });
