@@ -168,25 +168,25 @@ function drawChart(state) {
   data: {
     labels: [2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
     datasets: [{
-      label: 'Heart Data',
+      label: 'Heart',
       data: heartData,
       backgroundColor: "rgba(153,255,51,0.4)"
     }, {
-      label: 'Cancer Data',
+      label: 'Cancer',
       data: cancerData,
       backgroundColor: "rgba(255,153,0,0.4)"
     }, {
-      label: 'Stroke Data',
+      label: 'Stroke',
       data: strokeData,
-      backgroundColor: "rgba(255,153,0,0.4)"
+      backgroundColor: "rgba(51,153,255,0.4)"
     }, {
-      label: 'Chronic Respitory Data',
-      data: respData,
-      backgroundColor: "rgba(255,153,0,0.4)"
-    }, {
-      label: 'Unintentional Injury Data',
+      label: 'Unintentional Injury',
       data: uninData,
-      backgroundColor: "rgba(255,153,0,0.4)"
+      backgroundColor: "rgba(255,51,255,0.4)"
+    }, {
+      label: 'Chronic Respitory',
+      data: respData,
+      backgroundColor: "rgba(51,255,153,0.4)"
     }]
   },
   options: {
@@ -194,7 +194,9 @@ function drawChart(state) {
       display: true,
       text: state
     },
-    legend: {labels:{fontColor:"black", fontSize: 14}}
+    legend: {labels:{fontColor:"black",
+    markerType:'none',
+      fontSize: 12}}
   }
 });
 }
